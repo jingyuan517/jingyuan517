@@ -1,0 +1,800 @@
+/* ================================================
+   WeChat iOS Style Override
+   ================================================ */
+
+:root {
+  --wechat-bg: #ededed;
+  --wechat-green: #34c759;
+  --wechat-dark-green: #2db84d;
+  --wechat-nav-bg: #f7f7f7;
+  --wechat-nav-border: #d9d9d9;
+  --wechat-input-bg: #f7f7f7;
+  --wechat-chat-bg: #ededed;
+  --wechat-bubble-received: #ffffff;
+  --wechat-text-primary: #000000;
+  --wechat-text-secondary: #8e8e93;
+  --wechat-blue: #007aff;
+}
+
+/* ---- Overall background ---- */
+body {
+  background: var(--wechat-chat-bg) !important;
+}
+
+.main-chat-area {
+  background: var(--wechat-chat-bg) !important;
+}
+
+.chat-container {
+  background: var(--wechat-chat-bg) !important;
+  padding: 10px 10px !important;
+}
+
+/* ---- Header - iOS Navigation Bar ---- */
+.header {
+  background: var(--wechat-nav-bg) !important;
+  border-bottom: 0.5px solid var(--wechat-nav-border) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+.header:hover {
+  opacity: 1 !important;
+}
+
+.header-motto {
+  display: none !important;
+}
+
+.header-inner {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 10px !important;
+  height: 44px !important;
+  max-width: 100% !important;
+  gap: 0 !important;
+}
+
+/* Hide my own user-info (right side) */
+.header-inner > .user-info:last-child {
+  display: none !important;
+}
+
+/* Partner user-info row */
+.header-inner > .user-info:first-child {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: auto !important;
+}
+
+/* Hide partner avatar and status in header */
+#partner-avatar-container,
+#partner-status {
+  display: none !important;
+}
+
+#partner-name {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  max-width: 160px !important;
+  letter-spacing: 0 !important;
+  order: 0 !important;
+}
+
+/* Header actions */
+.header-actions {
+  display: flex !important;
+  gap: 0 !important;
+  flex: none !important;
+}
+
+.header-actions .action-btn {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 17px !important;
+  color: var(--wechat-blue) !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  transition: background 0.15s !important;
+}
+
+.header-actions .action-btn:hover {
+  background: rgba(0,0,0,0.06) !important;
+  transform: none !important;
+}
+
+/* ---- Chat Container Background ---- */
+.main-chat-area {
+  background: var(--wechat-chat-bg) !important;
+}
+
+/* ---- Message Wrappers ---- */
+.message-wrapper {
+  max-width: 78% !important;
+  margin-bottom: 6px !important;
+  gap: 6px !important;
+}
+
+.message-wrapper.sent {
+  align-self: flex-end !important;
+  flex-direction: row-reverse !important;
+}
+
+.message-wrapper.received {
+  align-self: flex-start !important;
+  flex-direction: row !important;
+}
+
+/* ---- Message Avatars ---- */
+.message-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: #c4c4c4 !important;
+  flex-shrink: 0 !important;
+}
+
+.message-avatar.hidden {
+  visibility: hidden !important;
+}
+
+.message-avatar i {
+  font-size: 16px !important;
+  color: #fff !important;
+}
+
+/* ---- Message Bubble Base ---- */
+.message {
+  padding: 8px 12px !important;
+  border-radius: 14px !important;
+  word-wrap: break-word !important;
+  line-height: 1.45 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  position: relative !important;
+  overflow: visible !important;
+  min-width: 36px !important;
+  box-shadow: none !important;
+}
+
+/* ---- Sent Bubble (iOS Green) ---- */
+.message-sent {
+  background: var(--wechat-green) !important;
+  color: #fff !important;
+  border-radius: 14px 14px 4px 14px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+/* Sent bubble tail */
+.message-wrapper.sent .message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  right: -6px !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 solid transparent !important;
+  border-top-width: 0 !important;
+  border-bottom-width: 8px !important;
+  border-left-width: 8px !important;
+  border-left-color: var(--wechat-green) !important;
+  border-right: 0 !important;
+}
+
+/* ---- Received Bubble (White) ---- */
+.message-received {
+  background: var(--wechat-bubble-received) !important;
+  color: #000 !important;
+  border-radius: 14px 14px 14px 4px !important;
+  border-bottom-left-radius: 4px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06) !important;
+}
+
+/* Received bubble tail */
+.message-wrapper.received .message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: -6px !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 solid transparent !important;
+  border-top-width: 0 !important;
+  border-bottom-width: 8px !important;
+  border-right-width: 8px !important;
+  border-right-color: var(--wechat-bubble-received) !important;
+  border-left: 0 !important;
+}
+
+/* Remove existing border-radius overrides */
+.message-sent,
+.message-received {
+  border-bottom-right-radius: 4px !important;
+}
+.message-wrapper.received .message-received {
+  border-bottom-left-radius: 4px !important;
+}
+
+/* Image-only bubbles */
+.message-image-bubble-none {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+}
+.message-image-bubble-none::after {
+  display: none !important;
+}
+.message-image-bubble-none .message-image {
+  border-radius: 10px !important;
+}
+
+/* ---- Message Meta (Timestamp + Read Receipt) ---- */
+.message-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin: 2px 4px 0 !important;
+  opacity: 0.8 !important;
+  font-size: 10px !important;
+  color: var(--wechat-text-secondary) !important;
+  height: 16px !important;
+}
+
+.message-wrapper.sent .message-meta {
+  justify-content: flex-end !important;
+}
+
+.message-wrapper.received .message-meta {
+  justify-content: flex-start !important;
+}
+
+/* ---- System Messages ---- */
+.system-message {
+  background: transparent !important;
+  color: var(--wechat-text-secondary) !important;
+  font-size: 12px !important;
+  text-align: center !important;
+  padding: 4px 12px !important;
+  margin: 8px 0 !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ---- Message Meta Actions ---- */
+.message-meta-actions {
+  background: rgba(255,255,255,0.95) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12) !important;
+  padding: 2px 4px !important;
+  top: -16px !important;
+}
+
+.meta-action-btn {
+  font-size: 12px !important;
+  color: #555 !important;
+  padding: 4px 6px !important;
+  border-radius: 50% !important;
+}
+
+/* ---- Typing Indicator ---- */
+#typing-indicator-wrapper {
+  padding: 4px 16px !important;
+}
+
+.typing-indicator {
+  background: transparent !important;
+  padding: 6px 0 !important;
+  gap: 6px !important;
+}
+
+.typing-indicator-avatar {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #c4c4c4 !important;
+}
+
+.typing-indicator-label {
+  font-size: 12px !important;
+  color: var(--wechat-text-secondary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ---- Empty State ---- */
+#empty-state {
+  pointer-events: none !important;
+}
+
+#empty-state i.fa-heart {
+  font-size: 44px !important;
+  opacity: 0.3 !important;
+}
+
+#empty-state p {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  opacity: 0.5 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---- Input Area ---- */
+.input-area-wrapper {
+  background: var(--wechat-input-bg) !important;
+  border-top: 0.5px solid var(--wechat-nav-border) !important;
+}
+
+.input-area {
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 6px 8px !important;
+  gap: 6px !important;
+  border-top: none !important;
+}
+
+/* Hide the video call button and collapse button in input area */
+#videocall-btn,
+#collapse-expand-btn {
+  display: none !important;
+}
+
+/* Hide batch button and continue button */
+#batch-btn,
+#continue-btn {
+  display: none !important;
+}
+
+/* Combo (emoji/sticker) button - positioned to the right of input (iOS order) */
+.combo-btn {
+  width: 30px !important;
+  height: 30px !important;
+  background: transparent !important;
+  color: #7a7a7a !important;
+  font-size: 20px !important;
+  border-radius: 0 !important;
+  order: 1 !important;
+}
+.combo-btn:hover {
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Plus button wrapper - order: 2 (after emoji) */
+.plus-btn-wrapper {
+  order: 2 !important;
+}
+
+.plus-btn {
+  width: 30px !important;
+  height: 30px !important;
+  background: transparent !important;
+  color: #7a7a7a !important;
+  font-size: 22px !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
+}
+.plus-btn:hover {
+  transform: none !important;
+  background: transparent !important;
+}
+
+/* Input buttons (send etc) - order: 3 (far right) */
+.input-buttons {
+  order: 3 !important;
+}
+
+/* Message input - order: 0 (leftmost visible) */
+.message-input {
+  order: 0 !important;
+}
+
+/* Message input - WeChat style */
+.message-input {
+  flex: 1 !important;
+  border: 0.5px solid #d9d9d9 !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  background: #fff !important;
+  color: #000 !important;
+  resize: none !important;
+  outline: none !important;
+  max-height: 80px !important;
+  min-height: 34px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  white-space: pre-wrap !important;
+  overflow-y: auto !important;
+  text-overflow: clip !important;
+  line-height: 1.4 !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.message-input:focus {
+  border-color: #b3b3b3 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  outline: none !important;
+}
+
+/* Input buttons row */
+.input-buttons {
+  display: flex !important;
+  gap: 2px !important;
+  align-items: center !important;
+}
+
+.input-btn {
+  border: none !important;
+  border-radius: 0 !important;
+  width: 30px !important;
+  height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: opacity 0.1s !important;
+  flex-shrink: 0 !important;
+  background: transparent !important;
+  color: #7a7a7a !important;
+  font-size: 18px !important;
+}
+
+.input-btn:hover {
+  transform: none !important;
+  filter: none !important;
+  opacity: 0.7 !important;
+}
+
+/* Send button - WeChat blue */
+.send-btn {
+  width: 30px !important;
+  height: 30px !important;
+  background: transparent !important;
+  color: var(--wechat-blue) !important;
+  font-size: 20px !important;
+  border-radius: 0 !important;
+}
+
+/* Batch button active state */
+.batch-btn.active {
+  background: var(--wechat-green) !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+/* ---- Plus Popup - iOS Bottom Sheet ---- */
+.plus-popup {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: auto !important;
+  z-index: 2000 !important;
+  display: none !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: stretch !important;
+}
+
+.plus-popup.active {
+  display: flex !important;
+  gap: 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Dark overlay pseudo-element */
+.plus-popup::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0,0,0,0.4) !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.plus-popup-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  padding: 10px 0 !important;
+  border: none !important;
+  background: #f2f2f6 !important;
+  color: #000 !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  border-radius: 0 !important;
+  white-space: nowrap !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  flex: 0 0 25% !important;
+  max-width: 25% !important;
+  box-sizing: border-box !important;
+  min-height: 80px !important;
+}
+
+.plus-popup-item:first-child {
+  border-radius: 14px 0 0 0 !important;
+}
+
+.plus-popup-item:last-child {
+  border-radius: 0 14px 0 0 !important;
+}
+
+.plus-popup-item:hover {
+  background: #e8e8ec !important;
+  color: #000 !important;
+}
+
+.plus-popup-item i {
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  color: var(--wechat-blue) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+  text-align: center !important;
+}
+
+/* Arrange items in a row at the bottom - no bg so ::before overlay shows through */
+.plus-popup.active {
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-content: flex-start !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+  gap: 0 !important;
+}
+
+/* Individual items are the sheet - corner rounding on first/last */
+.plus-popup-item {
+  border-radius: 0 !important;
+}
+.plus-popup-item:first-child {
+  border-radius: 14px 0 0 0 !important;
+}
+.plus-popup-item:last-child {
+  border-radius: 0 14px 0 0 !important;
+}
+
+/* ---- Sticker Picker - WeChat Style ---- */
+.sticker-picker-popover {
+  border-radius: 12px !important;
+  box-shadow: 0 -2px 20px rgba(0,0,0,0.12) !important;
+  background: #f7f7f7 !important;
+  border: none !important;
+}
+
+.combo-tabs-header {
+  border-bottom: 0.5px solid #e0e0e0 !important;
+  background: #fff !important;
+  border-radius: 12px 12px 0 0 !important;
+  padding: 8px 12px !important;
+}
+
+.combo-tab-btn {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #555 !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+}
+
+.combo-tab-btn.active {
+  font-weight: 600 !important;
+  color: #000 !important;
+}
+
+/* ---- Notification / Toast ---- */
+.notification {
+  border-radius: 8px !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 13px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* ---- System Time Stamp Between Messages ---- */
+/* WeChat-style centered time separator */
+.message-wrapper + .message-wrapper {
+  margin-top: 0 !important;
+}
+
+/* Override message appearance animation - make it instant */
+@keyframes messageAppear {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-wrapper {
+  animation: messageAppear 0.2s ease-out forwards !important;
+}
+
+/* ---- Bubble Style Override for Round/Square etc ---- */
+.message.rounded,
+.message.rounded-large,
+.message.square,
+.message.rounded-sent,
+.message.rounded-received {
+  border-radius: 14px !important;
+}
+.message-wrapper.sent .message.rounded,
+.message-wrapper.sent .message.rounded-large,
+.message-wrapper.sent .message.square,
+.message-wrapper.sent .message.rounded-sent {
+  border-radius: 14px 14px 4px 14px !important;
+}
+.message-wrapper.received .message.rounded,
+.message-wrapper.received .message.rounded-large,
+.message-wrapper.received .message.square,
+.message-wrapper.received .message.rounded-received {
+  border-radius: 14px 14px 14px 4px !important;
+}
+
+/* ---- Group sender name ---- */
+.group-sender-name {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 12px !important;
+  color: var(--wechat-text-secondary) !important;
+  margin-bottom: 2px !important;
+}
+
+/* ---- Read Receipt ---- */
+.read-receipt {
+  font-size: 10px !important;
+}
+
+/* ---- Reply Preview (input bar) ---- */
+#reply-preview-container {
+  background: #ececec !important;
+  border-top: 0.5px solid #d9d9d9 !important;
+  padding: 6px 12px !important;
+}
+
+.reply-preview-text {
+  font-size: 13px !important;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ---- Dark Mode Overrides ---- */
+html[data-theme="dark"] .header {
+  background: #1c1c1e !important;
+  border-bottom-color: #38383a !important;
+}
+
+html[data-theme="dark"] #partner-name {
+  color: #fff !important;
+}
+
+html[data-theme="dark"] .header-actions .action-btn {
+  color: #007aff !important;
+}
+
+html[data-theme="dark"] .header-actions .action-btn:hover {
+  background: rgba(255,255,255,0.08) !important;
+}
+
+html[data-theme="dark"] .main-chat-area,
+html[data-theme="dark"] .chat-container {
+  background: #1e1e1e !important;
+}
+
+html[data-theme="dark"] .message-received {
+  background: #2c2c2e !important;
+  color: #fff !important;
+}
+
+html[data-theme="dark"] .message-wrapper.received .message-received::after {
+  border-right-color: #2c2c2e !important;
+}
+
+html[data-theme="dark"] .input-area-wrapper {
+  background: #1c1c1e !important;
+  border-top-color: #38383a !important;
+}
+
+html[data-theme="dark"] .message-input {
+  background: #2c2c2e !important;
+  color: #fff !important;
+  border-color: #38383a !important;
+}
+
+html[data-theme="dark"] .message-input:focus {
+  border-color: #555 !important;
+}
+
+html[data-theme="dark"] .combo-btn,
+html[data-theme="dark"] .plus-btn {
+  color: #98989d !important;
+}
+
+html[data-theme="dark"] .send-btn {
+  color: #007aff !important;
+}
+
+html[data-theme="dark"] .plus-popup::before {
+  background: rgba(0,0,0,0.6) !important;
+}
+
+html[data-theme="dark"] .plus-popup-item {
+  background: #1c1c1e !important;
+  color: #fff !important;
+}
+
+html[data-theme="dark"] .plus-popup-item i {
+  background: #2c2c2e !important;
+  color: #007aff !important;
+}
+
+html[data-theme="dark"] .system-message {
+  color: #8e8e93 !important;
+}
+
+html[data-theme="dark"] .message-meta {
+  color: #8e8e93 !important;
+}
+
+html[data-theme="dark"] #reply-preview-container {
+  background: #2c2c2e !important;
+  border-top-color: #38383a !important;
+}
+
+html[data-theme="dark"] .sticker-picker-popover {
+  background: #1c1c1e !important;
+}
+
+html[data-theme="dark"] .combo-tabs-header {
+  background: #2c2c2e !important;
+  border-bottom-color: #38383a !important;
+}
+
+html[data-theme="dark"] .combo-tab-btn {
+  color: #98989d !important;
+}
+
+html[data-theme="dark"] .combo-tab-btn.active {
+  color: #fff !important;
+}
+
+html[data-theme="dark"] .group-sender-name {
+  color: #8e8e93 !important;
+}
+
+html[data-theme="dark"] .typing-indicator-label {
+  color: #8e8e93 !important;
+}

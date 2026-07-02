@@ -1,0 +1,748 @@
+/* ================================================
+   古风 · 朱墨宣纸 UI
+   ================================================ */
+
+:root {
+  --gufeng-paper: #f5f0e8;
+  --gufeng-paper-deep: #ede4d0;
+  --gufeng-paper-dark: #e2d6bd;
+  --gufeng-ink: #2c2c2c;
+  --gufeng-ink-light: #5a4a3a;
+  --gufeng-vermilion: #c43a31;
+  --gufeng-vermilion-dark: #a82e26;
+  --gufeng-gold: #b8860b;
+  --gufeng-gold-light: #d4a84b;
+  --gufeng-sepia: #8b7d6b;
+  --gufeng-border: #d4c5a9;
+  --gufeng-bubble-received: #fffbf5;
+  --gufeng-bubble-sent: #c43a31;
+  --gufeng-input-bg: #e8dcc8;
+}
+
+/* ---- Google Font: Ma Shan Zheng for headers ---- */
+#partner-name,
+.header-motto,
+.modal-title,
+.settings-card span,
+.username {
+  font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
+}
+
+/* ---- Overall ---- */
+body {
+  background: var(--gufeng-paper) !important;
+}
+
+.main-chat-area,
+.chat-container {
+  background: var(--gufeng-paper) !important;
+}
+
+.chat-container {
+  padding: 20px 15px !important;
+}
+
+/* ---- Header ---- */
+.header {
+  background: var(--gufeng-paper-deep) !important;
+  border-bottom: none !important;
+  position: relative !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Brush-stroke bottom border */
+.header::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 5% !important;
+  right: 5% !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, var(--gufeng-sepia), var(--gufeng-vermilion), var(--gufeng-sepia), transparent) !important;
+  opacity: 0.4 !important;
+  border-radius: 50% !important;
+}
+
+.header:hover {
+  opacity: 1 !important;
+}
+
+.header-motto {
+  opacity: 0.6 !important;
+  letter-spacing: 4px !important;
+  font-size: 12px !important;
+  color: var(--gufeng-sepia) !important;
+  font-weight: 400 !important;
+}
+
+.header-motto::before,
+.header-motto::after {
+  background: linear-gradient(90deg, transparent, var(--gufeng-sepia), transparent) !important;
+  opacity: 0.3 !important;
+  width: 40px !important;
+}
+
+.header-inner {
+  padding: 6px 12px !important;
+  max-width: 100% !important;
+}
+
+#partner-name {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: var(--gufeng-ink) !important;
+  letter-spacing: 2px !important;
+  max-width: 120px !important;
+}
+
+.username {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--gufeng-ink-light) !important;
+}
+
+.status {
+  font-size: 10px !important;
+  color: var(--gufeng-ink-light) !important;
+}
+
+/* Action buttons - seal stamp style */
+.header-actions {
+  gap: 0 !important;
+}
+
+.action-btn {
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 14px !important;
+  color: var(--gufeng-vermilion) !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  transition: all 0.2s !important;
+}
+
+.action-btn:hover {
+  background: rgba(196, 58, 49, 0.08) !important;
+  color: var(--gufeng-vermilion-dark) !important;
+  transform: none !important;
+}
+
+/* ---- Chat Area ---- */
+.chat-container {
+  background: var(--gufeng-paper) !important;
+}
+
+/* Subtle rice paper texture */
+.main-chat-area {
+  position: relative !important;
+}
+
+.main-chat-area::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(139, 125, 107, 0.02) 3px, rgba(139, 125, 107, 0.02) 4px) !important;
+}
+
+/* ---- Message Wrappers ---- */
+.message-wrapper {
+  margin-bottom: 8px !important;
+  gap: 8px !important;
+}
+
+.message-wrapper.sent {
+  flex-direction: row-reverse !important;
+}
+
+.message-wrapper.received {
+  flex-direction: row !important;
+}
+
+/* ---- Avatars ---- */
+.message-avatar {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid var(--gufeng-border) !important;
+  background: var(--gufeng-paper-deep) !important;
+}
+
+/* ---- Message Bubbles ---- */
+.message {
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  font-family: 'Noto Serif SC', serif !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  box-shadow: none !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Sent: 朱红 seal stamp */
+.message-sent {
+  background: var(--gufeng-bubble-sent) !important;
+  color: #fff8f0 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(196, 58, 49, 0.15) !important;
+}
+
+/* Received: 宣纸 with ink border */
+.message-received {
+  background: var(--gufeng-bubble-received) !important;
+  color: var(--gufeng-ink) !important;
+  border: 1px solid var(--gufeng-border) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Remove round/square variants overrides */
+.message.rounded,
+.message.rounded-large,
+.message.square,
+.message.rounded-sent,
+.message.rounded-received {
+  border-radius: 12px !important;
+}
+
+/* Image-only bubbles */
+.message-image-bubble-none {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.message-image {
+  border-radius: 8px !important;
+}
+
+/* ---- Message Meta ---- */
+.message-meta {
+  margin: 4px 6px 0 !important;
+  opacity: 0.6 !important;
+  font-size: 10px !important;
+  color: var(--gufeng-sepia) !important;
+  height: 16px !important;
+}
+
+.message-meta-actions {
+  background: var(--gufeng-paper) !important;
+  border: 1px solid var(--gufeng-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  padding: 2px 4px !important;
+  top: -14px !important;
+}
+
+.meta-action-btn {
+  font-size: 11px !important;
+  color: var(--gufeng-sepia) !important;
+  padding: 4px 6px !important;
+  border-radius: 50% !important;
+}
+
+.meta-action-btn:hover {
+  color: var(--gufeng-vermilion) !important;
+  background: rgba(196, 58, 49, 0.06) !important;
+  transform: none !important;
+}
+
+/* ---- System Messages ---- */
+.system-message {
+  background: transparent !important;
+  color: var(--gufeng-sepia) !important;
+  font-size: 12px !important;
+  text-align: center !important;
+  padding: 4px 12px !important;
+  margin: 8px 0 !important;
+  font-family: 'Noto Serif SC', serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+}
+
+/* ---- Typing Indicator ---- */
+#typing-indicator-wrapper {
+  padding: 4px 16px !important;
+}
+
+.typing-indicator {
+  background: transparent !important;
+  padding: 6px 0 !important;
+  gap: 6px !important;
+}
+
+.typing-indicator-avatar {
+  border: 1px solid var(--gufeng-border) !important;
+}
+
+.typing-indicator-label {
+  font-size: 12px !important;
+  color: var(--gufeng-ink-light) !important;
+  font-family: 'Noto Serif SC', serif !important;
+}
+
+/* ---- Input Area ---- */
+.input-area-wrapper {
+  background: var(--gufeng-input-bg) !important;
+  border-top: none !important;
+  position: relative !important;
+}
+
+/* Brush-stroke top border */
+.input-area-wrapper::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 5% !important;
+  right: 5% !important;
+  height: 1.5px !important;
+  background: linear-gradient(90deg, transparent, var(--gufeng-sepia), var(--gufeng-vermilion), var(--gufeng-sepia), transparent) !important;
+  opacity: 0.3 !important;
+}
+
+.input-area {
+  padding: 8px 12px !important;
+  gap: 6px !important;
+  border-top: none !important;
+  align-items: flex-end !important;
+}
+
+.message-input {
+  flex: 1 !important;
+  border: 1px solid var(--gufeng-border) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  background: var(--gufeng-paper) !important;
+  color: var(--gufeng-ink) !important;
+  resize: none !important;
+  outline: none !important;
+  max-height: 100px !important;
+  min-height: 36px !important;
+  font-family: 'Noto Serif SC', serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  box-shadow: none !important;
+  white-space: pre-wrap !important;
+  overflow-y: auto !important;
+}
+
+.message-input:focus {
+  border-color: var(--gufeng-vermilion) !important;
+  box-shadow: 0 0 0 2px rgba(196, 58, 49, 0.08) !important;
+  transform: none !important;
+}
+
+/* ---- Input Buttons ---- */
+.input-btn {
+  border: none !important;
+  border-radius: 50% !important;
+  width: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  flex-shrink: 0 !important;
+  background: transparent !important;
+  color: var(--gufeng-ink-light) !important;
+  font-size: 16px !important;
+}
+
+.input-btn:hover {
+  transform: none !important;
+  color: var(--gufeng-vermilion) !important;
+  background: rgba(196, 58, 49, 0.06) !important;
+}
+
+/* Combo button */
+.combo-btn {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 18px !important;
+  color: var(--gufeng-ink-light) !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+}
+
+/* Plus button */
+.plus-btn {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 20px !important;
+  background: transparent !important;
+  color: var(--gufeng-ink-light) !important;
+  margin-right: 0 !important;
+}
+
+.plus-btn:hover {
+  transform: rotate(90deg) !important;
+  background: transparent !important;
+}
+
+/* Send button - seal stamp red */
+.send-btn {
+  width: 36px !important;
+  height: 36px !important;
+  background: var(--gufeng-vermilion) !important;
+  color: #fff8f0 !important;
+  border-radius: 50% !important;
+  font-size: 16px !important;
+  box-shadow: 0 2px 6px rgba(196, 58, 49, 0.2) !important;
+}
+
+.send-btn:hover {
+  background: var(--gufeng-vermilion-dark) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(196, 58, 49, 0.3) !important;
+}
+
+/* Hide video call, collapse, batch, continue buttons */
+#videocall-btn,
+#collapse-expand-btn,
+#batch-btn,
+#continue-btn {
+  display: none !important;
+}
+
+/* ---- Plus Popup ---- */
+.plus-popup {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: auto !important;
+  z-index: 2000 !important;
+  display: none !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: stretch !important;
+}
+
+.plus-popup.active {
+  display: flex !important;
+  gap: 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.plus-popup::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(44, 44, 44, 0.45) !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.plus-popup-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  padding: 12px 0 !important;
+  border: none !important;
+  background: var(--gufeng-paper-deep) !important;
+  color: var(--gufeng-ink) !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  border-radius: 0 !important;
+  white-space: nowrap !important;
+  font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
+  flex: 0 0 25% !important;
+  max-width: 25% !important;
+  box-sizing: border-box !important;
+  min-height: 80px !important;
+}
+
+.plus-popup-item:hover {
+  background: var(--gufeng-paper-dark) !important;
+  color: var(--gufeng-vermilion) !important;
+}
+
+.plus-popup-item i {
+  width: 46px !important;
+  height: 46px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 22px !important;
+  background: var(--gufeng-paper) !important;
+  border: 1px solid var(--gufeng-border) !important;
+  border-radius: 50% !important;
+  color: var(--gufeng-vermilion) !important;
+  text-align: center !important;
+}
+
+.plus-popup.active {
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  background: var(--gufeng-paper-deep) !important;
+  border-radius: 14px 14px 0 0 !important;
+  min-height: 180px !important;
+  padding-top: 16px !important;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* ---- Sticker Picker ---- */
+.sticker-picker-popover {
+  border-radius: 12px !important;
+  background: var(--gufeng-paper-deep) !important;
+  border: 1px solid var(--gufeng-border) !important;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+.combo-tabs-header {
+  background: var(--gufeng-paper) !important;
+  border-bottom: 1px solid var(--gufeng-border) !important;
+  border-radius: 12px 12px 0 0 !important;
+  padding: 8px 12px !important;
+}
+
+.combo-tab-btn {
+  font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
+  font-size: 14px !important;
+  color: var(--gufeng-ink-light) !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+}
+
+.combo-tab-btn.active {
+  background: var(--gufeng-vermilion) !important;
+  color: #fff8f0 !important;
+}
+
+/* ---- Modals ---- */
+.modal-content {
+  background: var(--gufeng-paper-deep) !important;
+  border: 1px solid var(--gufeng-border) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.modal-title {
+  font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
+  color: var(--gufeng-ink) !important;
+  font-size: 20px !important;
+  letter-spacing: 2px !important;
+}
+
+.modal-btn {
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-family: 'Noto Serif SC', serif !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+.modal-btn-primary {
+  background: var(--gufeng-vermilion) !important;
+  color: #fff8f0 !important;
+}
+
+.modal-btn-primary:hover {
+  background: var(--gufeng-vermilion-dark) !important;
+}
+
+.modal-btn-secondary {
+  background: var(--gufeng-paper) !important;
+  color: var(--gufeng-ink) !important;
+  border: 1px solid var(--gufeng-border) !important;
+}
+
+.modal-btn-secondary:hover {
+  border-color: var(--gufeng-vermilion) !important;
+  color: var(--gufeng-vermilion) !important;
+}
+
+/* ---- Settings Cards ---- */
+.settings-card {
+  background: var(--gufeng-paper-deep) !important;
+  border: 1px solid var(--gufeng-border) !important;
+  border-radius: 12px !important;
+}
+
+.settings-card i {
+  color: var(--gufeng-vermilion) !important;
+}
+
+.settings-card span {
+  font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
+  font-size: 15px !important;
+}
+
+/* ---- Notifications ---- */
+.notification {
+  border-radius: 8px !important;
+  font-family: 'Noto Serif SC', serif !important;
+  font-size: 13px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ---- Companion Page ---- */
+.companion-modal {
+  background: var(--gufeng-paper) !important;
+}
+
+/* ---- Empty State ---- */
+#empty-state i.fa-heart {
+  color: var(--gufeng-vermilion) !important;
+  opacity: 0.4 !important;
+}
+
+#empty-state i.fa-comment-dots {
+  color: var(--gufeng-vermilion) !important;
+  opacity: 0.5 !important;
+}
+
+#empty-state p {
+  font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
+  color: var(--gufeng-sepia) !important;
+  letter-spacing: 2px !important;
+}
+
+/* ---- Reply Preview ---- */
+#reply-preview-container {
+  background: var(--gufeng-paper) !important;
+  border-top: 1px solid var(--gufeng-border) !important;
+  padding: 6px 12px !important;
+}
+
+.reply-preview-text {
+  font-size: 13px !important;
+  color: var(--gufeng-ink-light) !important;
+}
+
+/* ---- Dark Mode ---- */
+html[data-theme="dark"] {
+  --gufeng-paper: #2a2520;
+  --gufeng-paper-deep: #221e1a;
+  --gufeng-paper-dark: #1a1714;
+  --gufeng-ink: #e8ddd0;
+  --gufeng-ink-light: #c4b8a8;
+  --gufeng-vermilion: #d44a40;
+  --gufeng-vermilion-dark: #bf3830;
+  --gufeng-border: #4a4038;
+  --gufeng-sepia: #8a7a6a;
+  --gufeng-bubble-received: #322c26;
+  --gufeng-bubble-sent: #d44a40;
+  --gufeng-input-bg: #221e1a;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .main-chat-area,
+html[data-theme="dark"] .chat-container {
+  background: var(--gufeng-paper) !important;
+}
+
+html[data-theme="dark"] .header {
+  background: var(--gufeng-paper-deep) !important;
+}
+
+html[data-theme="dark"] #partner-name {
+  color: var(--gufeng-ink) !important;
+}
+
+html[data-theme="dark"] .message-received {
+  background: var(--gufeng-bubble-received) !important;
+  color: var(--gufeng-ink) !important;
+  border-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .message-input {
+  background: var(--gufeng-paper) !important;
+  color: var(--gufeng-ink) !important;
+  border-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .message-input:focus {
+  border-color: var(--gufeng-vermilion) !important;
+}
+
+html[data-theme="dark"] .input-area-wrapper {
+  background: var(--gufeng-input-bg) !important;
+}
+
+html[data-theme="dark"] .plus-popup-item {
+  background: var(--gufeng-paper-deep) !important;
+  color: var(--gufeng-ink) !important;
+}
+
+html[data-theme="dark"] .plus-popup-item i {
+  background: var(--gufeng-paper) !important;
+  border-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .plus-popup.active {
+  background: var(--gufeng-paper-deep) !important;
+}
+
+html[data-theme="dark"] .modal-content {
+  background: var(--gufeng-paper-deep) !important;
+  border-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .settings-card {
+  background: var(--gufeng-paper-deep) !important;
+  border-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .combo-tabs-header {
+  background: var(--gufeng-paper) !important;
+  border-bottom-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .message-meta-actions {
+  background: var(--gufeng-paper-deep) !important;
+  border-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .system-message {
+  color: var(--gufeng-sepia) !important;
+}
+
+html[data-theme="dark"] .sticker-picker-popover {
+  background: var(--gufeng-paper-deep) !important;
+  border-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] #reply-preview-container {
+  background: var(--gufeng-paper) !important;
+  border-top-color: var(--gufeng-border) !important;
+}
+
+html[data-theme="dark"] .input-btn {
+  color: var(--gufeng-ink-light) !important;
+}
+
+html[data-theme="dark"] .input-btn:hover {
+  color: var(--gufeng-vermilion) !important;
+}
